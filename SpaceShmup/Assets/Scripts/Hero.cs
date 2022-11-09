@@ -13,6 +13,7 @@ public class Hero : MonoBehaviour
 
     [Header("Dynamic")]
     public float shieldLevel = 1;
+    private GameObject lastTriggerGo = null;
 
     private void Awake()
     {
@@ -48,4 +49,24 @@ public class Hero : MonoBehaviour
         //Rotate the ship to make it feel more dynamic
         transform.rotation = Quaternion.Euler(vAxis*pitchMult, hAxis*rollMult, 0);
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        Transform rootT = other.gameObject.transform.root;
+        GameObject go = rootT.gameObject;
+        /*Debug.Log("Shield trigger hit by: " + go.gameObject.name);*/
+        if (go == lastTriggerGo) return;
+        lastTriggerGo = go;
+
+        Enemy enemy = go.GetComponent<Enemy>();
+        if (enemy != null)
+        {
+            shieldLevel--;
+            Destroy(go);
+        }
+        else
+        {
+            Debug.LogWarning("Shield trigger hit by non-enemy" + go.name);
+        }
+    }
+
 }
