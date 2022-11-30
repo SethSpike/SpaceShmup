@@ -2,18 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hero : MonoBehaviour
+public class Hero_2 : MonoBehaviour
 {
-    static public Hero S { get; private set; }
+    static public Hero_2 S { get; private set; }
     [Header("Inscribe")]
     //Ship movement
     public float speed = 30;
     public float rollMult = -45;
-    public float pitchMult = 30;
-    public GameObject projectilePrefab;
+    public GameObject projectilePrefab_2;
     public float projectileSpeed = 40;
 
-    [Header("Dynamic")][Range(0,4)][SerializeField]
+    [Header("Dynamic")]
+    [Range(0, 4)]
+    [SerializeField]
     private float _shieldLevel = 1;
     private GameObject lastTriggerGo = null;
 
@@ -25,14 +26,14 @@ public class Hero : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Hero.Awake() - attempt to assign second hero");
+            Debug.LogError("Hero_2.Awake() - attempt to assign second hero");
         }
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -47,20 +48,20 @@ public class Hero : MonoBehaviour
         transform.position = pos;
 
         //Rotate the ship to make it feel more dynamic
-        transform.rotation = Quaternion.Euler(0, hAxis*rollMult, 0);
+        transform.rotation = Quaternion.Euler(0, hAxis * rollMult, 0);
 
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.W))
         {
-            TempFire();
+            TempFire_2();
         }
     }
 
-    void TempFire()
+    void TempFire_2()
     {
-        GameObject projGO = Instantiate<GameObject>(projectilePrefab);
+        GameObject projGO = Instantiate<GameObject>(projectilePrefab_2);
         projGO.transform.position = transform.position;
         Rigidbody rigidB = projGO.GetComponent<Rigidbody>();
-        rigidB.velocity = Vector3.up * projectileSpeed;
+        rigidB.velocity = Vector3.down * projectileSpeed;
     }
 
     private void OnTriggerEnter(Collider other)

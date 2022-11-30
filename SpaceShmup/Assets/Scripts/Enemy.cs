@@ -64,7 +64,7 @@ public class Enemy : MonoBehaviour
     public virtual void Move()
     {
         Vector3 tempPos = pos;
-        tempPos.y -= speed * Time.deltaTime;
+        tempPos.x -= speed * Time.deltaTime;
         pos = tempPos;
     }
 }
