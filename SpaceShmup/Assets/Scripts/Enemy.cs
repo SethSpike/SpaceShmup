@@ -29,24 +29,6 @@ public class Enemy : MonoBehaviour
             this.transform.position = value;
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        Move(); 
-        /*if (!bndCheck.isOnScreen)
-        {
-            if (pos.y < bndCheck.camHeight - bndCheck.radius)
-            {
-                Destroy(gameObject);
-            }
-        }*/
-        if (bndCheck.LocIs(BoundsCheck.eScreensLocs.offDown))
-        {
-            Destroy(gameObject);
-        }
-    }
-
     private void OnCollisionEnter(Collision collision)
     {
         GameObject otherGO = collision.gameObject;
@@ -55,9 +37,24 @@ public class Enemy : MonoBehaviour
             Destroy(otherGO);
             Destroy(gameObject);
         }
+        if (otherGO.GetComponent<ProjectileHero_2>() != null)
+        {
+            Destroy(otherGO);
+            Destroy(gameObject);
+        }
         else
         {
             Debug.Log("Enemy hit by not Projectile" + otherGO.name);
+        }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        Move(); 
+        if (bndCheck.LocIs(BoundsCheck.eScreensLocs.offLeft))
+        {
+            Destroy(gameObject);
         }
     }
 

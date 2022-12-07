@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 377242442}
   - component: {fileID: 377242441}
   m_Layer: 8
-  m_Name: Shield
+  m_Name: Shield_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 377242439}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 856c3c3e252648242a67aa325d1ee532, type: 3}
+  m_Script: {fileID: 11500000, guid: 177332a72d913c4449cc328501f150ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rotationsPerSecond: 0.1
@@ -242,9 +242,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 414620141}
+  - component: {fileID: 414620140}
   - component: {fileID: 414620139}
   - component: {fileID: 414620138}
-  - component: {fileID: 414620140}
   m_Layer: 8
   m_Name: _Hero_2
   m_TagString: Untagged
@@ -708,7 +708,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabEnemies:
   - {fileID: 1643185999003182209, guid: c9e164a8952d1ab47b28d793e391bdf0, type: 3}
-  enemySpawnPerSecond: 0.5
+  enemySpawnPerSecond: 4
   enemtInsetDefault: 1.5
   gameRestartDelay: 2
 --- !u!114 &963194230

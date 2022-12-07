@@ -12,14 +12,16 @@ public class Main : MonoBehaviour
     public float enemtInsetDefault = 1.5f;
     public float gameRestartDelay = 2;
     private BoundsCheck bndCheck;
+    private BoundsCheck_2 bndCheck_2;
 
     private void Awake()
     {
         S = this;
         bndCheck = GetComponent<BoundsCheck>();
+        bndCheck_2 = GetComponent<BoundsCheck_2>();
         Invoke(nameof(SpawnEnemy), 1f / enemySpawnPerSecond);
     }
-
+ 
     public void SpawnEnemy()
     {
         int ndx = Random.Range(0, prefabEnemies.Length);
@@ -33,15 +35,15 @@ public class Main : MonoBehaviour
         }
 
         Vector3 pos = Vector3.zero;
-        float xMin = -bndCheck.camWidth + enemyInset;
-        float xMax = bndCheck.camWidth - enemyInset;
-        pos.x = Random.Range(xMin, xMax);
-        pos.y = bndCheck.camHeight + enemyInset;
+        float yMin = -bndCheck.camWidth + enemyInset;
+        float yMax = bndCheck.camWidth - enemyInset;
+        pos.x = bndCheck.camHeight + enemyInset;
+        pos.y = Random.Range(yMin, yMax);
 
         go.transform.position = pos;
         Invoke(nameof(SpawnEnemy), 1f / enemySpawnPerSecond);
     }
-
+    
     void DelayedRestart()
     {
         Invoke(nameof(Restart), gameRestartDelay);

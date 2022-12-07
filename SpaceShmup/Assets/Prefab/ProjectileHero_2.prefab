@@ -13,9 +13,8 @@ GameObject:
   - component: {fileID: 325583258911104906}
   - component: {fileID: 325583258911104901}
   - component: {fileID: 325583258911104900}
-  - component: {fileID: 325583258911104905}
-  - component: {fileID: -5996616982839675694}
-  m_Layer: 10
+  - component: {fileID: -4007932639871647798}
+  m_Layer: 8
   m_Name: ProjectileHero_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,25 +113,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
---- !u!114 &325583258911104905
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 325583258911104902}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0c404cbfef09284db2ae5005d924366, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boundsType: 2
-  radius: 1
-  keepOnScreen: 0
-  screenlocs: 0
-  camWidth: 0
-  camHeight: 0
---- !u!114 &-5996616982839675694
+--- !u!114 &-4007932639871647798
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

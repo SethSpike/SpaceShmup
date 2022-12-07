@@ -30,17 +30,11 @@ public class Hero_2 : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {
         //pull in info from input class
-        float hAxis = Input.GetAxis("Horizontal");
+        float hAxis = Input.GetAxis("Horizontal_2");
 
         //Change our trans.pos based on the axes
         Vector3 pos = transform.position;
@@ -68,12 +62,11 @@ public class Hero_2 : MonoBehaviour
     {
         Transform rootT = other.gameObject.transform.root;
         GameObject go = rootT.gameObject;
-        /*Debug.Log("Shield trigger hit by: " + go.gameObject.name);*/
         if (go == lastTriggerGo) return;
         lastTriggerGo = go;
 
-        Enemy enemy = go.GetComponent<Enemy>();
-        if (enemy != null)
+        ProjectileHero projectile = go.GetComponent<ProjectileHero>();
+        if (projectile != null)
         {
             shieldLevel--;
             Destroy(go);

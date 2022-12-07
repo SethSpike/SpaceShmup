@@ -67,12 +67,11 @@ public class Hero : MonoBehaviour
     {
         Transform rootT = other.gameObject.transform.root;
         GameObject go = rootT.gameObject;
-        /*Debug.Log("Shield trigger hit by: " + go.gameObject.name);*/
         if (go == lastTriggerGo) return;
         lastTriggerGo = go;
 
-        Enemy enemy = go.GetComponent<Enemy>();
-        if (enemy != null)
+        ProjectileHero_2 projectile = go.GetComponent<ProjectileHero_2>();
+        if (projectile != null)
         {
             shieldLevel--;
             Destroy(go);
